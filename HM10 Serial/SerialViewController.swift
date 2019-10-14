@@ -27,7 +27,7 @@ enum ReceivedMessageOption: Int {
 final class SerialViewController: UIViewController, UITextFieldDelegate, BluetoothSerialDelegate {
 
 //MARK: IBOutlets
-    
+    //todo 우리에게 필요없는 기능 지우고 새로운 UI 구성
     @IBOutlet weak var mainTextView: UITextView!
     @IBOutlet weak var messageField: UITextField!
     @IBOutlet weak var bottomView: UIView!
@@ -123,6 +123,7 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
 
 //MARK: BluetoothSerialDelegate
     
+    //todo 여기서 받아오는 메시지 json 형식이니까 잘 파싱해서 서버로 넘기기
     func serialDidReceiveString(_ message: String) {
         // add the received text to the textView, optionally with a line break at the end
         mainTextView.text! += message

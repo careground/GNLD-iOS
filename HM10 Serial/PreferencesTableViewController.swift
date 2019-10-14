@@ -8,6 +8,7 @@
 
 import UIKit
 
+//todo 우리에게 필요 없는 뷰. 정리 필요
 final class PreferencesTableViewController: UITableViewController {
     
 //MARK: Variables
