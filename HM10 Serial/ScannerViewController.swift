@@ -44,7 +44,7 @@ final class ScannerViewController: UIViewController, UITableViewDataSource, UITa
         serial.delegate = self
         
         if serial.centralManager.state != .poweredOn {
-            title = "Bluetooth not turned on"
+            title = "블루투스가 꺼져있습니다"
             return
         }
         
@@ -63,7 +63,7 @@ final class ScannerViewController: UIViewController, UITableViewDataSource, UITa
         // timeout has occurred, stop scanning and give the user the option to try again
         serial.stopScan()
         tryAgainButton.isEnabled = true
-        title = "Done scanning"
+        title = "스캔 완료"
     }
     
     /// Should be called 10s after we've begun connecting
@@ -85,7 +85,7 @@ final class ScannerViewController: UIViewController, UITableViewDataSource, UITa
         
         let hud = MBProgressHUD.showAdded(to: view, animated: true)
         hud?.mode = MBProgressHUDMode.text
-        hud?.labelText = "Failed to connect"
+        hud?.labelText = "연결 실패"
         hud?.hide(true, afterDelay: 2)
     }
     
@@ -120,7 +120,7 @@ final class ScannerViewController: UIViewController, UITableViewDataSource, UITa
         selectedPeripheral = peripherals[(indexPath as NSIndexPath).row].peripheral
         serial.connectToPeripheral(selectedPeripheral!)
         progressHUD = MBProgressHUD.showAdded(to: view, animated: true)
-        progressHUD!.labelText = "Connecting"
+        progressHUD!.labelText = "연결중"
         
         // TODO: Timer doesn't use connecting ID
         Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(ScannerViewController.connectTimeOut), userInfo: nil, repeats: false)
@@ -151,7 +151,7 @@ final class ScannerViewController: UIViewController, UITableViewDataSource, UITa
                 
         let hud = MBProgressHUD.showAdded(to: view, animated: true)
         hud?.mode = MBProgressHUDMode.text
-        hud?.labelText = "Failed to connect"
+        hud?.labelText = "연결 실패"
         hud?.hide(true, afterDelay: 1.0)
     }
     
@@ -164,7 +164,7 @@ final class ScannerViewController: UIViewController, UITableViewDataSource, UITa
         
         let hud = MBProgressHUD.showAdded(to: view, animated: true)
         hud?.mode = MBProgressHUDMode.text
-        hud?.labelText = "Failed to connect"
+        hud?.labelText = "연결 실패"
         hud?.hide(true, afterDelay: 1.0)
 
     }
@@ -203,7 +203,7 @@ final class ScannerViewController: UIViewController, UITableViewDataSource, UITa
         peripherals = []
         tableView.reloadData()
         tryAgainButton.isEnabled = false
-        title = "Scanning ..."
+        title = "스캔중"
         serial.startScan()
         Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(ScannerViewController.scanTimeOut), userInfo: nil, repeats: false)
     }
