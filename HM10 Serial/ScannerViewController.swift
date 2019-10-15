@@ -52,11 +52,6 @@ final class ScannerViewController: UIViewController, UITableViewDataSource, UITa
         serial.startScan()
         Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(ScannerViewController.scanTimeOut), userInfo: nil, repeats: false)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     /// Should be called 10s after we've begun scanning
     @objc func scanTimeOut() {

@@ -115,18 +115,87 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="50F-fB-GuI">
+                                <rect key="frame" x="10" y="447" width="355" height="200"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="drop" translatesAutoresizingMaskIntoConstraints="NO" id="FXp-sb-IZM">
+                                        <rect key="frame" x="0.0" y="0.0" width="78.5" height="200"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sand" translatesAutoresizingMaskIntoConstraints="NO" id="JEI-ur-cLK">
+                                        <rect key="frame" x="92.5" y="0.0" width="78" height="200"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cold" translatesAutoresizingMaskIntoConstraints="NO" id="pYQ-gL-Kpu">
+                                        <rect key="frame" x="184.5" y="0.0" width="78.5" height="200"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fan" translatesAutoresizingMaskIntoConstraints="NO" id="P9T-nM-urZ">
+                                        <rect key="frame" x="277" y="0.0" width="78" height="200"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="dgL-Uq-uzp"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상단의 새로 고침을 누르고  최신의 데이터를 확인해보세요 :)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ekl-yI-QNP">
+                                <rect key="frame" x="10" y="338.5" width="355" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="HhD-2t-js9">
+                                <rect key="frame" x="10" y="397" width="355" height="24"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="수분 양호" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdD-yW-hK2">
+                                        <rect key="frame" x="0.0" y="0.0" width="85" height="24"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="미세 나쁨" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHX-JE-Azg">
+                                        <rect key="frame" x="90" y="0.0" width="85" height="24"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="추움" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nB7-BC-rM1">
+                                        <rect key="frame" x="180" y="0.0" width="85" height="24"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CO 위험" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fk-wp-Faw">
+                                        <rect key="frame" x="270" y="0.0" width="85" height="24"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="HhD-2t-js9" firstAttribute="trailing" secondItem="50F-fB-GuI" secondAttribute="trailing" id="6WY-6x-5ne"/>
                             <constraint firstItem="uKa-Ue-hGn" firstAttribute="top" secondItem="8L2-oJ-fyr" secondAttribute="bottom" id="BAc-Hy-L1B"/>
+                            <constraint firstItem="HhD-2t-js9" firstAttribute="top" secondItem="ekl-yI-QNP" secondAttribute="bottom" constant="20" id="DXr-5F-ycJ"/>
+                            <constraint firstItem="HhD-2t-js9" firstAttribute="leading" secondItem="50F-fB-GuI" secondAttribute="leading" id="EGx-19-KEh"/>
                             <constraint firstItem="uKa-Ue-hGn" firstAttribute="trailing" secondItem="fvc-it-Qiq" secondAttribute="trailingMargin" constant="4" id="KCA-11-u2g"/>
+                            <constraint firstAttribute="trailing" secondItem="50F-fB-GuI" secondAttribute="trailing" constant="10" id="Ur8-6H-gXK"/>
+                            <constraint firstItem="ekl-yI-QNP" firstAttribute="trailing" secondItem="HhD-2t-js9" secondAttribute="trailing" id="VhA-9b-xBn"/>
+                            <constraint firstItem="JDL-SJ-Cln" firstAttribute="top" secondItem="50F-fB-GuI" secondAttribute="bottom" constant="20" id="ZAR-mQ-YpX"/>
+                            <constraint firstItem="50F-fB-GuI" firstAttribute="leading" secondItem="fvc-it-Qiq" secondAttribute="leading" constant="10" id="cNv-mZ-CRC"/>
                             <constraint firstItem="uKa-Ue-hGn" firstAttribute="leading" secondItem="fvc-it-Qiq" secondAttribute="leadingMargin" constant="-4" id="png-fP-Md8"/>
+                            <constraint firstItem="ekl-yI-QNP" firstAttribute="leading" secondItem="HhD-2t-js9" secondAttribute="leading" id="t6t-WB-5kt"/>
+                            <constraint firstItem="50F-fB-GuI" firstAttribute="top" secondItem="HhD-2t-js9" secondAttribute="bottom" constant="26" id="uCN-Um-XoL"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="그느르다" id="bYe-jD-tRw">
                         <barButtonItem key="leftBarButtonItem" title="연결하기" id="ab2-hX-zmf">
                             <connections>
                                 <action selector="barButtonPressed:" destination="EEx-bJ-XFj" id="gtQ-Es-7yR"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="새로고침" id="MEa-oH-XIA">
+                            <connections>
+                                <action selector="rightBarButtonPressed:" destination="EEx-bJ-XFj" id="ag3-pV-vdj"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -140,7 +209,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vau-JV-2qH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1240" y="1387"/>
+            <point key="canvasLocation" x="1239.2" y="1386.656671664168"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="l5Z-t8-MYl">
@@ -179,4 +248,10 @@
             <point key="canvasLocation" x="511" y="1387"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cold" width="256" height="256"/>
+        <image name="drop" width="256" height="256"/>
+        <image name="fan" width="256" height="256"/>
+        <image name="sand" width="256" height="256"/>
+    </resources>
 </document>

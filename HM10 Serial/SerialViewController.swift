@@ -9,6 +9,7 @@
 import UIKit
 import CoreBluetooth
 import QuartzCore
+import SwiftyJSON
 
 /// The option to add a \n or \r or \r\n to the end of the send message
 enum MessageOption: Int {
@@ -27,17 +28,19 @@ enum ReceivedMessageOption: Int {
 final class SerialViewController: UIViewController, UITextFieldDelegate, BluetoothSerialDelegate {
 
 //MARK: IBOutlets
-    //todo 우리에게 필요없는 기능 지우고 새로운 UI 구성
     @IBOutlet weak var mainTextView: UITextView!
     @IBOutlet weak var barButton: UIBarButtonItem!
     @IBOutlet weak var navItem: UINavigationItem!
+    
+    private var msgToJson = ""
+    private var sensorData: ArduSensor?
 
 
 //MARK: Functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
         // init serial
         serial = BluetoothSerial(delegate: self)
         
@@ -79,13 +82,24 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
     
 
 //MARK: BluetoothSerialDelegate
-    
-    //todo 여기서 받아오는 메시지 json 형식이니까 잘 파싱해서 서버로 넘기기
+ 
     func serialDidReceiveString(_ message: String) {
-        // add the received text to the textView, optionally with a line break at the end
-        mainTextView.text! += message
-        let pref = UserDefaults.standard.integer(forKey: ReceivedMessageOptionKey)
-        if pref == ReceivedMessageOption.newline.rawValue { mainTextView.text! += "\n" }
+        if message.first == "{" {
+            msgToJson = ""
+        }
+        msgToJson += message
+        if message.last == "}" {
+            let data = msgToJson.data(using: .utf8)!
+            do {
+                let sensorData = try JSONDecoder().decode(ArduSensor.self, from: data)
+                //센서 메시지 받아서 서버로 통신
+                self.sensorData = sensorData
+                sendSensorData(isNeedToSend: UserData.isOver30mSendData, sensorData: sensorData)
+                mainTextView.text! += msgToJson+"\n"
+            } catch {
+                print("Decoding Err")
+            }
+        }
         textViewScrollToBottom()
     }
     
@@ -107,8 +121,6 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         }
     }
     
-  
-    
     
 //MARK: IBActions
     @IBAction func barButtonPressed(_ sender: AnyObject) {
@@ -117,6 +129,78 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         } else {
             serial.disconnect()
             reloadView()
+        }
+    }
+    
+    @IBAction func rightBarButtonPressed(_ sender: AnyObject) {
+        //30분이랑 상관없이 보내기까지 된 후에 업데이트.
+        guard let sensorData = self.sensorData else {
+            return
+        }
+        sendSensorData(isNeedToSend: true, sensorData: sensorData)
+    }
+}
+
+//MARK: 통신
+extension SerialViewController {
+    func sendSensorData(isNeedToSend: Bool, sensorData: ArduSensor) {
+        if !isNeedToSend {
+            return
+        }
+        //todo 서버에 보낼 시간까지 추가
+        NetworkManager.sharedInstance.sendSensorData(temperature: sensorData.temperature, humidity_per: sensorData.humidityPercent, CO: sensorData.CO, pm10: sensorData.pm10, pm2p5: sensorData.pm2p5, soil_per: sensorData.soilPercent) { [weak self] (res) in
+            guard let `self` = self else {
+                return
+            }
+            switch res {
+            case .success(let data):
+                //마지막으로 서버에 데이터 보낸 시간을 현재 시간으로 초기화
+                UserData.setUserDefault(value: Date(), key: .lastSendDataTime)
+                //데이터 보낸후 (30분 지났거나 새로고침 한 경우) 에 update view 하기위해 getData 호출
+                self.getSensorDataFromNetwork()
+            case .failure(let type):
+                switch type {
+                case .networkConnectFail, .networkError:
+                    UserData.setUserDefault(value: Date(), key: .lastSendDataTime) //todo 지워야함. 지금 성공 시나리오 없어서 넣어놓은거
+                    self.getSensorDataFromNetwork() //todo 지워야함.
+                    let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+                    hud?.mode = MBProgressHUDMode.text
+                    hud?.labelText = "서버로 데이터 전송" //todo 네트워크 에러로 이름 바꿔야
+                    hud?.hide(true, afterDelay: 1.0)
+                case .decodeError:
+                    let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+                    hud?.mode = MBProgressHUDMode.text
+                    hud?.labelText = "디코딩 에러"
+                    hud?.hide(true, afterDelay: 1.0)
+                }
+            }
+        }
+    }
+
+    func getSensorDataFromNetwork() {
+        print("emfdjdh")
+        NetworkManager.sharedInstance.getSensorData { [weak self] (res) in
+            guard let `self` = self else {
+                return
+            }
+            switch res {
+            case .success(let data):
+                //todo 뷰 업데이트
+                break
+            case .failure(let type):
+                switch type {
+                case .networkConnectFail, .networkError:
+                    let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+                    hud?.mode = MBProgressHUDMode.text
+                    hud?.labelText = "최신 데이터 다운" //todo 네트워크 에러로 이름 바꿔야
+                    hud?.hide(true, afterDelay: 1.0)
+                case .decodeError:
+                    let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+                    hud?.mode = MBProgressHUDMode.text
+                    hud?.labelText = "디코딩 에러"
+                    hud?.hide(true, afterDelay: 1.0)
+                }
+            }
         }
     }
 }
