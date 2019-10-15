@@ -8,6 +8,7 @@
 
 import Foundation
 struct ArduSensor: Codable {
+    //todo optional 처리. 선 연결 안되면 null들어감
     let temperature: Double
     let humidityPercent: Double
     let CO: Int

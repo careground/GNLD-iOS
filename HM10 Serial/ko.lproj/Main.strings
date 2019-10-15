@@ -1,0 +1,42 @@
+
+/* Class = "UILabel"; text = "연결"; ObjectID = "1az-je-hXQ"; */
+"1az-je-hXQ.text" = "연결";
+
+/* Class = "UILabel"; text = "CO 위험"; ObjectID = "2Fk-wp-Faw"; */
+"2Fk-wp-Faw.text" = "CO 위험";
+
+/* Class = "UIBarButtonItem"; title = "새로고침"; ObjectID = "MEa-oH-XIA"; */
+"MEa-oH-XIA.title" = "새로고침";
+
+/* Class = "UIBarButtonItem"; title = "연결하기"; ObjectID = "ab2-hX-zmf"; */
+"ab2-hX-zmf.title" = "연결하기";
+
+/* Class = "UILabel"; text = "Bluetooth Speaker"; ObjectID = "an4-6b-FSY"; */
+"an4-6b-FSY.text" = "Bluetooth Speaker";
+
+/* Class = "UINavigationItem"; title = "그느르다"; ObjectID = "bYe-jD-tRw"; */
+"bYe-jD-tRw.title" = "그느르다";
+
+/* Class = "UIBarButtonItem"; title = "재시도"; ObjectID = "cle-lH-dvA"; */
+"cle-lH-dvA.title" = "재시도";
+
+/* Class = "UINavigationItem"; title = "찾는중..."; ObjectID = "eda-Ke-DJ0"; */
+"eda-Ke-DJ0.title" = "찾는중...";
+
+/* Class = "UILabel"; text = "상단의 새로 고침을 누르고  최신의 데이터를 확인해보세요 :)"; ObjectID = "ekl-yI-QNP"; */
+"ekl-yI-QNP.text" = "상단의 새로 고침을 누르고  최신의 데이터를 확인해보세요 :)";
+
+/* Class = "UILabel"; text = "수분 양호"; ObjectID = "gdD-yW-hK2"; */
+"gdD-yW-hK2.text" = "수분 양호";
+
+/* Class = "UILabel"; text = "추움"; ObjectID = "nB7-BC-rM1"; */
+"nB7-BC-rM1.text" = "추움";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "uKa-Ue-hGn"; */
+"uKa-Ue-hGn.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+/* Class = "UIBarButtonItem"; title = "취소"; ObjectID = "x06-gA-foi"; */
+"x06-gA-foi.title" = "취소";
+
+/* Class = "UILabel"; text = "미세 나쁨"; ObjectID = "yHX-JE-Azg"; */
+"yHX-JE-Azg.text" = "미세 나쁨";

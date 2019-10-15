@@ -97,6 +97,8 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
                 sendSensorData(isNeedToSend: UserData.isOver30mSendData, sensorData: sensorData)
                 mainTextView.text! += msgToJson+"\n"
             } catch {
+                mainTextView.text! += "decoding err\n"
+                mainTextView.text! += msgToJson+"\n"
                 print("Decoding Err")
             }
         }

@@ -14,6 +14,7 @@
 		3BA619DE2355FCD800354C2A /* SampleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA619DD2355FCD800354C2A /* SampleModel.swift */; };
 		3BFCDC3123560740004D5405 /* ArduSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFCDC3023560740004D5405 /* ArduSensor.swift */; };
 		3BFCDC33235616C3004D5405 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFCDC32235616C3004D5405 /* UserData.swift */; };
+		3BFCDC3823565EB5004D5405 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3BFCDC3A23565EB5004D5405 /* InfoPlist.strings */; };
 		EE12142C0B1162AB02DAC228 /* Pods_Serial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEC39D4172D46EB7027682CB /* Pods_Serial.framework */; };
 		FA5AB96B1B77A30F007443C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5AB96A1B77A30F007443C8 /* AppDelegate.swift */; };
 		FA5AB9701B77A30F007443C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA5AB96E1B77A30F007443C8 /* Main.storyboard */; };
@@ -45,6 +46,10 @@
 		3BA619DD2355FCD800354C2A /* SampleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleModel.swift; sourceTree = "<group>"; };
 		3BFCDC3023560740004D5405 /* ArduSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduSensor.swift; sourceTree = "<group>"; };
 		3BFCDC32235616C3004D5405 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		3BFCDC3423565E66004D5405 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
+		3BFCDC3523565E66004D5405 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		3BFCDC3923565EB5004D5405 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3BFCDC3B23565EB8004D5405 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		800459F96462EEEEEDBC0EC3 /* Pods-Serial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Serial.release.xcconfig"; path = "Target Support Files/Pods-Serial/Pods-Serial.release.xcconfig"; sourceTree = "<group>"; };
 		FA5AB9651B77A30E007443C8 /* Serial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Serial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA5AB9691B77A30F007443C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -173,6 +178,7 @@
 				FA5AB9711B77A30F007443C8 /* Images.xcassets */,
 				FA5AB9681B77A30E007443C8 /* Supporting Files */,
 				FA62F58A1B8B85B2000479B6 /* Serial-Bridging-Header.h */,
+				3BFCDC3A23565EB5004D5405 /* InfoPlist.strings */,
 			);
 			path = "HM10 Serial";
 			sourceTree = "<group>";
@@ -275,6 +281,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = FA5AB95C1B77A30E007443C8;
 			productRefGroup = FA5AB9661B77A30E007443C8 /* Products */;
@@ -293,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA5AB9701B77A30F007443C8 /* Main.storyboard in Resources */,
+				3BFCDC3823565EB5004D5405 /* InfoPlist.strings in Resources */,
 				FA5AB9751B77A30F007443C8 /* LaunchScreen.xib in Resources */,
 				FA5AB9721B77A30F007443C8 /* Images.xcassets in Resources */,
 			);
@@ -395,10 +403,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		3BFCDC3A23565EB5004D5405 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3BFCDC3923565EB5004D5405 /* en */,
+				3BFCDC3B23565EB8004D5405 /* ko */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		FA5AB96E1B77A30F007443C8 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				FA5AB96F1B77A30F007443C8 /* Base */,
+				3BFCDC3423565E66004D5405 /* ko */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -407,6 +425,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FA5AB9741B77A30F007443C8 /* Base */,
+				3BFCDC3523565E66004D5405 /* ko */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -418,6 +437,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -476,6 +496,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
