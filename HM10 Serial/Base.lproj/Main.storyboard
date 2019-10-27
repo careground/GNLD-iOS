@@ -105,93 +105,87 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKa-Ue-hGn">
-                                <rect key="frame" x="12" y="44" width="351" height="200"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="50F-fB-GuI">
-                                <rect key="frame" x="10" y="447" width="355" height="200"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="drop" translatesAutoresizingMaskIntoConstraints="NO" id="FXp-sb-IZM">
-                                        <rect key="frame" x="0.0" y="0.0" width="78.5" height="200"/>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sand" translatesAutoresizingMaskIntoConstraints="NO" id="JEI-ur-cLK">
-                                        <rect key="frame" x="92.5" y="0.0" width="78" height="200"/>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cold" translatesAutoresizingMaskIntoConstraints="NO" id="pYQ-gL-Kpu">
-                                        <rect key="frame" x="184.5" y="0.0" width="78.5" height="200"/>
-                                    </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fan" translatesAutoresizingMaskIntoConstraints="NO" id="P9T-nM-urZ">
-                                        <rect key="frame" x="277" y="0.0" width="78" height="200"/>
-                                    </imageView>
-                                </subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용자님의 화분 데이터" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAc-SI-P57">
+                                <rect key="frame" x="110" y="74" width="155.5" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="dgL-Uq-uzp"/>
+                                    <constraint firstAttribute="height" constant="24" id="aCT-At-3RT"/>
                                 </constraints>
-                            </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상단의 새로 고침을 누르고  최신의 데이터를 확인해보세요 :)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ekl-yI-QNP">
-                                <rect key="frame" x="10" y="338.5" width="355" height="38.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="HhD-2t-js9">
-                                <rect key="frame" x="10" y="397" width="355" height="24"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="50F-fB-GuI">
+                                <rect key="frame" x="30" y="153" width="100" height="434"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="수분 양호" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdD-yW-hK2">
-                                        <rect key="frame" x="0.0" y="0.0" width="85" height="24"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="water_none" translatesAutoresizingMaskIntoConstraints="NO" id="FXp-sb-IZM">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="96.5"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dust" translatesAutoresizingMaskIntoConstraints="NO" id="JEI-ur-cLK">
+                                        <rect key="frame" x="0.0" y="112.5" width="100" height="96.5"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thermometer" translatesAutoresizingMaskIntoConstraints="NO" id="pYQ-gL-Kpu">
+                                        <rect key="frame" x="0.0" y="225" width="100" height="96.5"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gas" translatesAutoresizingMaskIntoConstraints="NO" id="P9T-nM-urZ">
+                                        <rect key="frame" x="0.0" y="337.5" width="100" height="96.5"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Xum-k7-uFO"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="HhD-2t-js9">
+                                <rect key="frame" x="140" y="153" width="219" height="434"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="수분이 양호해요:)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdD-yW-hK2">
+                                        <rect key="frame" x="0.0" y="0.0" width="219" height="105"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.43770230380000003" green="0.65734680059999995" blue="0.83816364249999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="미세 나쁨" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHX-JE-Azg">
-                                        <rect key="frame" x="90" y="0.0" width="85" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="미세먼지가 나빠요! 환기 시켜주세요" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHX-JE-Azg">
+                                        <rect key="frame" x="0.0" y="110" width="219" height="104.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.8945105672" green="0.36925268169999997" blue="0.36468124390000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="추움" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nB7-BC-rM1">
-                                        <rect key="frame" x="180" y="0.0" width="85" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="온도가 낮아요!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nB7-BC-rM1">
+                                        <rect key="frame" x="0.0" y="219.5" width="219" height="105"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.8945105672" green="0.36925268169999997" blue="0.36468124390000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CO 위험" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fk-wp-Faw">
-                                        <rect key="frame" x="270" y="0.0" width="85" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CO가 위험해요!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fk-wp-Faw">
+                                        <rect key="frame" x="0.0" y="329.5" width="219" height="104.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.8945105672" green="0.36925268169999997" blue="0.36468124390000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="HhD-2t-js9" firstAttribute="trailing" secondItem="50F-fB-GuI" secondAttribute="trailing" id="6WY-6x-5ne"/>
-                            <constraint firstItem="uKa-Ue-hGn" firstAttribute="top" secondItem="8L2-oJ-fyr" secondAttribute="bottom" id="BAc-Hy-L1B"/>
-                            <constraint firstItem="HhD-2t-js9" firstAttribute="top" secondItem="ekl-yI-QNP" secondAttribute="bottom" constant="20" id="DXr-5F-ycJ"/>
-                            <constraint firstItem="HhD-2t-js9" firstAttribute="leading" secondItem="50F-fB-GuI" secondAttribute="leading" id="EGx-19-KEh"/>
-                            <constraint firstItem="uKa-Ue-hGn" firstAttribute="trailing" secondItem="fvc-it-Qiq" secondAttribute="trailingMargin" constant="4" id="KCA-11-u2g"/>
-                            <constraint firstAttribute="trailing" secondItem="50F-fB-GuI" secondAttribute="trailing" constant="10" id="Ur8-6H-gXK"/>
-                            <constraint firstItem="ekl-yI-QNP" firstAttribute="trailing" secondItem="HhD-2t-js9" secondAttribute="trailing" id="VhA-9b-xBn"/>
-                            <constraint firstItem="JDL-SJ-Cln" firstAttribute="top" secondItem="50F-fB-GuI" secondAttribute="bottom" constant="20" id="ZAR-mQ-YpX"/>
-                            <constraint firstItem="50F-fB-GuI" firstAttribute="leading" secondItem="fvc-it-Qiq" secondAttribute="leading" constant="10" id="cNv-mZ-CRC"/>
-                            <constraint firstItem="ekl-yI-QNP" firstAttribute="top" secondItem="uKa-Ue-hGn" secondAttribute="bottom" constant="94.5" id="pEv-Aj-i9H"/>
-                            <constraint firstItem="uKa-Ue-hGn" firstAttribute="leading" secondItem="fvc-it-Qiq" secondAttribute="leadingMargin" constant="-4" id="png-fP-Md8"/>
-                            <constraint firstItem="ekl-yI-QNP" firstAttribute="leading" secondItem="HhD-2t-js9" secondAttribute="leading" id="t6t-WB-5kt"/>
-                            <constraint firstItem="50F-fB-GuI" firstAttribute="top" secondItem="HhD-2t-js9" secondAttribute="bottom" constant="26" id="uCN-Um-XoL"/>
+                            <constraint firstItem="jAc-SI-P57" firstAttribute="top" secondItem="8L2-oJ-fyr" secondAttribute="bottom" constant="30" id="10l-hf-A51"/>
+                            <constraint firstItem="50F-fB-GuI" firstAttribute="leading" secondItem="fvc-it-Qiq" secondAttribute="leading" constant="30" id="3ur-yj-uoK"/>
+                            <constraint firstItem="HhD-2t-js9" firstAttribute="bottom" secondItem="50F-fB-GuI" secondAttribute="bottom" id="7Ht-5D-Ayp"/>
+                            <constraint firstItem="HhD-2t-js9" firstAttribute="leading" secondItem="50F-fB-GuI" secondAttribute="trailing" constant="10" id="BSy-cW-iMs"/>
+                            <constraint firstItem="50F-fB-GuI" firstAttribute="top" secondItem="jAc-SI-P57" secondAttribute="bottom" constant="55" id="Grn-zi-n6F"/>
+                            <constraint firstItem="jAc-SI-P57" firstAttribute="centerX" secondItem="fvc-it-Qiq" secondAttribute="centerX" id="MNg-wV-6Ve"/>
+                            <constraint firstItem="HhD-2t-js9" firstAttribute="top" secondItem="50F-fB-GuI" secondAttribute="top" id="S5m-VV-7Ga"/>
+                            <constraint firstItem="JDL-SJ-Cln" firstAttribute="top" secondItem="50F-fB-GuI" secondAttribute="bottom" constant="80" id="h5E-zb-JBf"/>
+                            <constraint firstAttribute="trailing" secondItem="HhD-2t-js9" secondAttribute="trailing" constant="16" id="mzk-ci-X0K"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="그느르다" id="bYe-jD-tRw">
-                        <barButtonItem key="leftBarButtonItem" title="연결하기" id="ab2-hX-zmf">
+                        <barButtonItem key="leftBarButtonItem" image="link" catalog="system" id="ab2-hX-zmf">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="barButtonPressed:" destination="EEx-bJ-XFj" id="gtQ-Es-7yR"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="새로고침" id="MEa-oH-XIA">
+                        <barButtonItem key="rightBarButtonItem" title="새로고침" image="arrow.clockwise" catalog="system" id="MEa-oH-XIA">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="rightBarButtonPressed:" destination="EEx-bJ-XFj" id="ag3-pV-vdj"/>
                             </connections>
@@ -200,14 +194,39 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="barButton" destination="ab2-hX-zmf" id="nfs-Tg-YOv"/>
-                        <outlet property="mainTextView" destination="uKa-Ue-hGn" id="zAW-om-CfC"/>
+                        <outlet property="dustImageView" destination="JEI-ur-cLK" id="wgH-GQ-xVb"/>
+                        <outlet property="dustLabel" destination="yHX-JE-Azg" id="Lge-w0-zpd"/>
+                        <outlet property="gasImageView" destination="P9T-nM-urZ" id="W3f-kW-du5"/>
+                        <outlet property="gasLabel" destination="2Fk-wp-Faw" id="8yU-cm-LXi"/>
                         <outlet property="navItem" destination="bYe-jD-tRw" id="yFM-d6-qdH"/>
+                        <outlet property="tempImageView" destination="pYQ-gL-Kpu" id="wi1-kQ-51e"/>
+                        <outlet property="tempLabel" destination="nB7-BC-rM1" id="31G-xK-WyF"/>
+                        <outlet property="waterImageView" destination="FXp-sb-IZM" id="I5f-DM-dP1"/>
+                        <outlet property="waterLabel" destination="gdD-yW-hK2" id="Z3t-zT-gKE"/>
                         <segue destination="HTb-Lt-944" kind="presentation" identifier="ShowScanner" modalPresentationStyle="formSheet" id="MXp-F6-2KD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vau-JV-2qH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1239.2" y="1386.656671664168"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tas-EQ-bqw">
+            <objects>
+                <viewController id="DLX-Og-2gh" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Qxm-3o-lSd"/>
+                        <viewControllerLayoutGuide type="bottom" id="GjO-2N-lSZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HJb-10-jzO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="93z-7y-nkp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2017" y="1388"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="l5Z-t8-MYl">
@@ -235,6 +254,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eTt-U0-Rqg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.43770230383212383" green="0.65734680060255524" blue="0.83816364247311825" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -247,9 +270,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cold" width="256" height="256"/>
-        <image name="drop" width="256" height="256"/>
-        <image name="fan" width="256" height="256"/>
-        <image name="sand" width="256" height="256"/>
+        <image name="arrow.clockwise" catalog="system" width="56" height="64"/>
+        <image name="dust" width="512" height="512"/>
+        <image name="gas" width="256" height="256"/>
+        <image name="link" catalog="system" width="64" height="58"/>
+        <image name="thermometer" width="512" height="512"/>
+        <image name="water_none" width="256" height="256"/>
     </resources>
 </document>
