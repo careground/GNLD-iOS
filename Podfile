@@ -6,6 +6,9 @@ target 'Serial' do
   use_frameworks!
 pod 'Moya'
 pod 'SwiftyJSON'
+pod 'Firebase/Analytics'
+pod 'Firebase/Core'
+pod 'Firebase/Messaging'
 
   # Pods for Serial
 

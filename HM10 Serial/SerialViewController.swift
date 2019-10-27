@@ -147,7 +147,7 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
     @IBAction func rightBarButtonPressed(_ sender: AnyObject) {
         //30분이랑 상관없이 보내기까지 된 후에 업데이트.
         guard let sensorData = self.sensorData else {
-            //MAKK: 야매
+            //MARK: 야매
             dustLabel.text = "미세먼지가 양호해요:)"
             dustLabel.textColor = #colorLiteral(red: 0.3586158454, green: 0.6558669806, blue: 0.8545332551, alpha: 1)
             return

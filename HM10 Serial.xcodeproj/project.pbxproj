@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BA25DF62365DAEC000FE7A1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BA25DF52365DAEB000FE7A1 /* GoogleService-Info.plist */; };
 		3BA619D52355F82600354C2A /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA619D42355F82600354C2A /* NetworkResult.swift */; };
 		3BA619D72355F84000354C2A /* CareGroundAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA619D62355F84000354C2A /* CareGroundAPI.swift */; };
 		3BA619D92355F84900354C2A /* Networkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA619D82355F84900354C2A /* Networkable.swift */; };
@@ -39,6 +40,8 @@
 
 /* Begin PBXFileReference section */
 		18BB5C09B78CA9FDC89C7D0A /* Pods-Serial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Serial.debug.xcconfig"; path = "Target Support Files/Pods-Serial/Pods-Serial.debug.xcconfig"; sourceTree = "<group>"; };
+		3BA25DF52365DAEB000FE7A1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3BA25DF72365DC03000FE7A1 /* 그느르다.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "그느르다.entitlements"; sourceTree = "<group>"; };
 		3BA619D42355F82600354C2A /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		3BA619D62355F84000354C2A /* CareGroundAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareGroundAPI.swift; sourceTree = "<group>"; };
 		3BA619D82355F84900354C2A /* Networkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networkable.swift; sourceTree = "<group>"; };
@@ -51,7 +54,7 @@
 		3BFCDC3923565EB5004D5405 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3BFCDC3B23565EB8004D5405 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		800459F96462EEEEEDBC0EC3 /* Pods-Serial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Serial.release.xcconfig"; path = "Target Support Files/Pods-Serial/Pods-Serial.release.xcconfig"; sourceTree = "<group>"; };
-		FA5AB9651B77A30E007443C8 /* Serial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Serial.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA5AB9651B77A30E007443C8 /* 그느르다.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "그느르다.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA5AB9691B77A30F007443C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA5AB96A1B77A30F007443C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA5AB96F1B77A30F007443C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -146,6 +149,7 @@
 		FA5AB95C1B77A30E007443C8 = {
 			isa = PBXGroup;
 			children = (
+				3BA25DF72365DC03000FE7A1 /* 그느르다.entitlements */,
 				FA5AB9671B77A30E007443C8 /* HM10 Serial */,
 				FA5AB97D1B77A30F007443C8 /* HM10 SerialTests */,
 				FA5AB9661B77A30E007443C8 /* Products */,
@@ -157,7 +161,7 @@
 		FA5AB9661B77A30E007443C8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FA5AB9651B77A30E007443C8 /* Serial.app */,
+				FA5AB9651B77A30E007443C8 /* 그느르다.app */,
 				FA5AB97A1B77A30F007443C8 /* HM10 SerialTests.xctest */,
 			);
 			name = Products;
@@ -166,6 +170,7 @@
 		FA5AB9671B77A30E007443C8 /* HM10 Serial */ = {
 			isa = PBXGroup;
 			children = (
+				3BA25DF52365DAEB000FE7A1 /* GoogleService-Info.plist */,
 				3BA619D32355F81300354C2A /* Networking */,
 				3BA619DF2356025E00354C2A /* Util */,
 				3BA619DC2355FCC000354C2A /* Model */,
@@ -227,7 +232,7 @@
 			);
 			name = Serial;
 			productName = "HM10 Serial";
-			productReference = FA5AB9651B77A30E007443C8 /* Serial.app */;
+			productReference = FA5AB9651B77A30E007443C8 /* 그느르다.app */;
 			productType = "com.apple.product-type.application";
 		};
 		FA5AB9791B77A30F007443C8 /* HM10 SerialTests */ = {
@@ -301,6 +306,7 @@
 			files = (
 				FA5AB9701B77A30F007443C8 /* Main.storyboard in Resources */,
 				3BFCDC3823565EB5004D5405 /* InfoPlist.strings in Resources */,
+				3BA25DF62365DAEC000FE7A1 /* GoogleService-Info.plist in Resources */,
 				FA5AB9751B77A30F007443C8 /* LaunchScreen.xib in Resources */,
 				FA5AB9721B77A30F007443C8 /* Images.xcassets in Resources */,
 			);
@@ -324,16 +330,22 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Serial/Pods-Serial-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -550,6 +562,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "그느르다.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Alex van der Lugt (B22Z7NLA6E)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = Y4XABUQ539;
@@ -557,8 +570,8 @@
 				INFOPLIST_FILE = "HM10 Serial/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = nl.balancingrock.bluetoothserial;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gnld;
+				PRODUCT_NAME = "그느르다";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HM10 Serial/Serial-Bridging-Header.h";
@@ -574,6 +587,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "그느르다.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Alex van der Lugt (B22Z7NLA6E)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = Y4XABUQ539;
@@ -581,8 +595,8 @@
 				INFOPLIST_FILE = "HM10 Serial/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = nl.balancingrock.bluetoothserial;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gnld;
+				PRODUCT_NAME = "그느르다";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HM10 Serial/Serial-Bridging-Header.h";
