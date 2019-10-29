@@ -55,6 +55,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         Messaging.messaging().apnsToken = deviceToken
     }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let presentViewController = storyBoard.instantiateViewController(withIdentifier: "AlertViewController")
+        self.window?.rootViewController?.present(presentViewController, animated: true, completion: nil)
+    }
 
     
     func applicationWillResignActive(_ application: UIApplication) {

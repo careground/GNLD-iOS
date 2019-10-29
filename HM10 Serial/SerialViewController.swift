@@ -28,7 +28,8 @@ enum ReceivedMessageOption: Int {
 final class SerialViewController: UIViewController, UITextFieldDelegate, BluetoothSerialDelegate {
 
 //MARK: IBOutlets
-    @IBOutlet weak var mainTextView: UITextView!
+    @IBOutlet weak var noConnectView: UIView!
+    //@IBOutlet weak var mainTextView: UITextView!
     @IBOutlet weak var barButton: UIBarButtonItem!
     @IBOutlet weak var navItem: UINavigationItem!
     
@@ -53,9 +54,7 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
        
         // init serial
         serial = BluetoothSerial(delegate: self)
-        
-        // UI
-//        mainTextView.text = ""
+    
         reloadView()
         
         NotificationCenter.default.addObserver(self, selector: #selector(SerialViewController.reloadView), name: NSNotification.Name(rawValue: "reloadStartViewController"), object: nil)
@@ -71,24 +70,23 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         serial.delegate = self
         
         if serial.isReady {
+            noConnectView.isHidden = true
             barButton.title = "연결 해제"
             barButton.tintColor = UIColor.red
             barButton.isEnabled = true
         } else if serial.centralManager.state == .poweredOn {
+            noConnectView.isHidden = false
             barButton.title = "연결"
             barButton.tintColor = view.tintColor
             barButton.isEnabled = true
         } else {
+            noConnectView.isHidden = false
             barButton.title = "연결"
             barButton.tintColor = view.tintColor
             barButton.isEnabled = false
         }
     }
-    
-    func textViewScrollToBottom() {
-        let range = NSMakeRange(NSString(string: mainTextView.text).length - 1, 1)
-        mainTextView.scrollRangeToVisible(range)
-    }
+
     
 
 //MARK: BluetoothSerialDelegate
@@ -105,14 +103,10 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
                 //센서 메시지 받아서 서버로 통신
                 self.sensorData = sensorData
                 sendSensorData(isNeedToSend: UserData.isOver30mSendData, sensorData: sensorData)
-                mainTextView.text! += msgToJson+"\n"
             } catch {
-                mainTextView.text! += "decoding err\n"
-                mainTextView.text! += msgToJson+"\n"
                 print("Decoding Err")
             }
         }
-        textViewScrollToBottom()
     }
     
     func serialDidDisconnect(_ peripheral: CBPeripheral, error: NSError?) {
@@ -148,8 +142,13 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         //30분이랑 상관없이 보내기까지 된 후에 업데이트.
         guard let sensorData = self.sensorData else {
             //MARK: 야매
-            dustLabel.text = "미세먼지가 양호해요:)"
-            dustLabel.textColor = #colorLiteral(red: 0.3586158454, green: 0.6558669806, blue: 0.8545332551, alpha: 1)
+            //미세먼지 bad -> good
+            //dustLabel.text = "미세먼지가 양호해요:)"
+            //dustLabel.textColor = #colorLiteral(red: 0.3586158454, green: 0.6558669806, blue: 0.8545332551, alpha: 1)
+            
+            //gas bad -> good
+            gasLabel.text = "일산화탄소 농도가 적정해요:)"
+            gasLabel.textColor = #colorLiteral(red: 0.3586158454, green: 0.6558669806, blue: 0.8545332551, alpha: 1)
             return
         }
         sendSensorData(isNeedToSend: true, sensorData: sensorData)
