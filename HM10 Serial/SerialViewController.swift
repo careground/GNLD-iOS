@@ -187,11 +187,9 @@ extension SerialViewController {
             case .failure(let type):
                 switch type {
                 case .networkConnectFail, .networkError:
-                    UserData.setUserDefault(value: Date(), key: .lastSendDataTime) //todo 지워야함. 지금 성공 시나리오 없어서 넣어놓은거
-                    self.getSensorDataFromNetwork() //todo 지워야함.
                     let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
                     hud?.mode = MBProgressHUDMode.text
-                    hud?.labelText = "서버로 데이터 전송" //todo 네트워크 에러로 이름 바꿔야
+                    hud?.labelText = "네트워크 에러"
                     hud?.hide(true, afterDelay: 1.0)
                 case .decodeError:
                     let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
@@ -260,7 +258,7 @@ extension SerialViewController {
                 case .networkConnectFail, .networkError:
                     let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
                     hud?.mode = MBProgressHUDMode.text
-                    hud?.labelText = "최신 데이터 다운" //todo 네트워크 에러로 이름 바꿔야
+                    hud?.labelText = "네트워크 에러"
                     hud?.hide(true, afterDelay: 1.0)
                 case .decodeError:
                     let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
