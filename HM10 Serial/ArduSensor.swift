@@ -8,13 +8,13 @@
 
 import Foundation
 struct ArduSensor: Codable {
-    //todo optional 처리. 선 연결 안되면 null들어감
-    let temperature: Double
-    let humidityPercent: Double
-    let CO: Int
-    let pm10: Int
-    let pm2p5: Int
-    let soilPercent: Int
+    //선 연결 안되면 null 들어기 때문에 optional 처리
+    let temperature: Double?
+    let humidityPercent: Double?
+    let CO: Int?
+    let pm10: Int?
+    let pm2p5: Int?
+    let soilPercent: Int?
 
     
     enum CodingKeys: String, CodingKey {

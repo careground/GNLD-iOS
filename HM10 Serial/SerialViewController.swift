@@ -147,8 +147,11 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
             //dustLabel.textColor = #colorLiteral(red: 0.3586158454, green: 0.6558669806, blue: 0.8545332551, alpha: 1)
             
             //gas bad -> good
-            gasLabel.text = "일산화탄소 농도가 적정해요:)"
-            gasLabel.textColor = #colorLiteral(red: 0.3586158454, green: 0.6558669806, blue: 0.8545332551, alpha: 1)
+            //gasLabel.text = "일산화탄소 농도가 적정해요:)"
+            //gasLabel.textColor = #colorLiteral(red: 0.3586158454, green: 0.6558669806, blue: 0.8545332551, alpha: 1)
+            
+            waterLabel.text = "수분이 적정해요 :)"
+            waterLabel.textColor = #colorLiteral(red: 0.3660923839, green: 0.6661527753, blue: 0.8566637635, alpha: 1)
             return
         }
         sendSensorData(isNeedToSend: true, sensorData: sensorData)
@@ -163,7 +166,15 @@ extension SerialViewController {
             return
         }
         //todo 서버에 보낼 시간까지 추가
-        NetworkManager.sharedInstance.sendSensorData(temperature: sensorData.temperature, humidity_per: sensorData.humidityPercent, CO: sensorData.CO, pm10: sensorData.pm10, pm2p5: sensorData.pm2p5, soil_per: sensorData.soilPercent) { [weak self] (res) in
+        guard let temperature = sensorData.temperature,
+            let humidityPercent = sensorData.humidityPercent,
+            let CO = sensorData.CO,
+            let pm10 = sensorData.pm10,
+            let pm2p5 = sensorData.pm2p5,
+            let soilPercent = sensorData.soilPercent else {
+                return
+        }
+        NetworkManager.sharedInstance.sendSensorData(temperature: temperature, humidityPercent: humidityPercent, CO: CO, pm10: pm10, pm2p5: pm2p5, soilPercent: soilPercent) { [weak self] (res) in
             guard let `self` = self else {
                 return
             }
