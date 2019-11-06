@@ -18,6 +18,7 @@ enum CareGroundAPI {
         pm10: Int,
         pm2p5: Int,
         soilPercent: Int)
+    case sendIamFine
 }
 
 extension CareGroundAPI: TargetType {
@@ -35,6 +36,8 @@ extension CareGroundAPI: TargetType {
             return "/"
         case .sendSensorData:
             return "/"
+        case .sendIamFine:
+            return "/"
         }
     }
     var method: Moya.Method {
@@ -42,6 +45,8 @@ extension CareGroundAPI: TargetType {
         case .getSensorData:
             return .get
         case .login, .sendSensorData:
+            return .post
+        case .sendIamFine:
             return .post
         }
     }
@@ -58,7 +63,7 @@ extension CareGroundAPI: TargetType {
                                              "pwd": pwd
             ]
             return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
-        case .getSensorData:
+        case .getSensorData, .sendIamFine:
             return .requestPlain
         case .sendSensorData(let temperature,
                               let humidityPercent,

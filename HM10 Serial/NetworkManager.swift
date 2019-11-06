@@ -79,4 +79,24 @@ extension NetworkManager {
             }
         }
     }
+    func sendIamFine(completion: @escaping (Result<String, NetworkError>) -> ()) {
+        fetchData(api: .sendIamFine, networkData: SampleModel.self) { (result) in
+            switch result {
+            case .success(let successResult):
+                guard let data = successResult.resResult.comments else {
+                    return
+                }
+                completion(.success(data))
+            case .failure(let errorType):
+                switch errorType {
+                case .networkConnectFail:
+                    completion(.failure(.networkConnectFail))
+                case .networkError:
+                    completion(.failure(.networkError))
+                case .decodeError:
+                    completion(.failure(.decodeError))
+                }
+            }
+        }
+    }
 }
