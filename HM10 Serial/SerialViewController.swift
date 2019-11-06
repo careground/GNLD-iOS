@@ -29,15 +29,12 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
 
 //MARK: IBOutlets
     @IBOutlet weak var noConnectView: UIView!
-    //@IBOutlet weak var mainTextView: UITextView!
     @IBOutlet weak var barButton: UIBarButtonItem!
     @IBOutlet weak var navItem: UINavigationItem!
-    
     @IBOutlet weak var waterImageView: UIImageView!
     @IBOutlet weak var dustImageView: UIImageView!
     @IBOutlet weak var tempImageView: UIImageView!
     @IBOutlet weak var gasImageView: UIImageView!
-    
     @IBOutlet weak var waterLabel: UILabel!
     @IBOutlet weak var dustLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
@@ -45,21 +42,63 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
     
     private var msgToJson = ""
     private var sensorData: ArduSensor?
-
-
-//MARK: Functions
     
+    
+    //MARK: Functions
+    private func updateView() {
+        //todo 뷰 업데이트
+        //서버 데이터 값만 if문에 넣어주면 됨!
+        
+        //                if 수분 데이터 정상일 때 {
+        //                    waterImageView.image = UIImage(named: "water")
+        //                    waterLabel.textColor = #colorLiteral(red: 0.3586158454, green: 0.6558669806, blue: 0.8545332551, alpha: 1)
+        //                    waterLabel.text = "수분이 양호해요:)"
+        //                } else {
+        //                    waterImageView.image = UIImage(named: "water_none")
+        //                    waterLabel.textColor = #colorLiteral(red: 0.9667089581, green: 0.3216629326, blue: 0.3425347209, alpha: 1)
+        //                    waterLabel.text = "수분이 부족해요!"
+        //                }
+        //
+        //                if 먼지 데이터 정상일 때 {
+        //                    dustImageView.image = UIImage(named: "dust_none")
+        //                    dustLabel.textColor = #colorLiteral(red: 0.3586158454, green: 0.6558669806, blue: 0.8545332551, alpha: 1)
+        //                    dustLabel.text = "미세먼지가 양호해요:)"
+        //                } else {
+        //                    dustImageView.image = UIImage(named: "dust")
+        //                    dustLabel.textColor = #colorLiteral(red: 0.9667089581, green: 0.3216629326, blue: 0.3425347209, alpha: 1)
+        //                    dustLabel.text = "미세먼지가 나빠요!"
+        //                }
+        //
+        //                if 온도 데이터 정상일 때 {
+        //                    tempImageView.image = UIImage(named: "thermometer_none")
+        //                    tempLabel.textColor = #colorLiteral(red: 0.3586158454, green: 0.6558669806, blue: 0.8545332551, alpha: 1)
+        //                    tempLabel.text = "온도가 양호해요:)"
+        //                } else {
+        //                    tempImageView.image = UIImage(named: "thermometer")
+        //                    tempLabel.textColor = #colorLiteral(red: 0.9667089581, green: 0.3216629326, blue: 0.3425347209, alpha: 1)
+        //                    tempLabel.text = "온도가 낮아요!"
+        //                }
+        //
+        //                if 가스 데이터 정상일 때 {
+        //                    gasImageView.image = UIImage(named: "gas_none")
+        //                    gasLabel.textColor = #colorLiteral(red: 0.3586158454, green: 0.6558669806, blue: 0.8545332551, alpha: 1)
+        //                    gasLabel.text = "CO가 양호해요:)"
+        //                } else {
+        //                    gasImageView.image = UIImage(named: "gas")
+        //                    gasLabel.textColor = #colorLiteral(red: 0.9667089581, green: 0.3216629326, blue: 0.3425347209, alpha: 1)
+        //                    gasLabel.text = "CO가 나빠요!"
+        //                }
+    }
+    
+    //MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-       
         // init serial
         serial = BluetoothSerial(delegate: self)
-    
         reloadView()
-        
         NotificationCenter.default.addObserver(self, selector: #selector(SerialViewController.reloadView), name: NSNotification.Name(rawValue: "reloadStartViewController"), object: nil)
     }
-
+    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
@@ -68,18 +107,20 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
     @objc func reloadView() {
         // in case we're the visible view again
         serial.delegate = self
-        
         if serial.isReady {
+            //블루투스 연결되어있는 상태
             noConnectView.isHidden = true
             barButton.title = "연결 해제"
             barButton.tintColor = UIColor.red
             barButton.isEnabled = true
         } else if serial.centralManager.state == .poweredOn {
+            //블루투스 켜져있고 연결 대기중인 상태
             noConnectView.isHidden = false
             barButton.title = "연결"
             barButton.tintColor = view.tintColor
             barButton.isEnabled = true
         } else {
+            //블루투스 꺼져있는 상태
             noConnectView.isHidden = false
             barButton.title = "연결"
             barButton.tintColor = view.tintColor
@@ -87,10 +128,30 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         }
     }
 
+//MARK: IBActions
+    //블루투스 연결
+    @IBAction func barButtonPressed(_ sender: AnyObject) {
+        if serial.connectedPeripheral == nil {
+            performSegue(withIdentifier: "ShowScanner", sender: self)
+        } else {
+            serial.disconnect()
+            reloadView()
+        }
+    }
     
+    //새로고침
+    @IBAction func rightBarButtonPressed(_ sender: AnyObject) {
+        //30분이랑 상관없이 보내기까지 된 후에 업데이트.
+        guard let sensorData = self.sensorData else {
+            return
+        }
+        sendSensorData(isNeedToSend: true, sensorData: sensorData)
+        
+    }
+}
 
 //MARK: BluetoothSerialDelegate
- 
+extension SerialViewController {
     func serialDidReceiveString(_ message: String) {
         if message.first == "{" {
             msgToJson = ""
@@ -126,37 +187,6 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
             hud?.hide(true, afterDelay: 1.0)
         }
     }
-    
-    
-//MARK: IBActions
-    @IBAction func barButtonPressed(_ sender: AnyObject) {
-        if serial.connectedPeripheral == nil {
-            performSegue(withIdentifier: "ShowScanner", sender: self)
-        } else {
-            serial.disconnect()
-            reloadView()
-        }
-    }
-    
-    @IBAction func rightBarButtonPressed(_ sender: AnyObject) {
-        //30분이랑 상관없이 보내기까지 된 후에 업데이트.
-        guard let sensorData = self.sensorData else {
-            //MARK: 야매
-            //미세먼지 bad -> good
-            //dustLabel.text = "미세먼지가 양호해요:)"
-            //dustLabel.textColor = #colorLiteral(red: 0.3586158454, green: 0.6558669806, blue: 0.8545332551, alpha: 1)
-            
-            //gas bad -> good
-            //gasLabel.text = "일산화탄소 농도가 적정해요:)"
-            //gasLabel.textColor = #colorLiteral(red: 0.3586158454, green: 0.6558669806, blue: 0.8545332551, alpha: 1)
-            
-            waterLabel.text = "수분이 적정해요 :)"
-            waterLabel.textColor = #colorLiteral(red: 0.3660923839, green: 0.6661527753, blue: 0.8566637635, alpha: 1)
-            return
-        }
-        sendSensorData(isNeedToSend: true, sensorData: sensorData)
-        
-    }
 }
 
 //MARK: 통신
@@ -182,7 +212,7 @@ extension SerialViewController {
             case .success(let data):
                 //마지막으로 서버에 데이터 보낸 시간을 현재 시간으로 초기화
                 UserData.setUserDefault(value: Date(), key: .lastSendDataTime)
-                //데이터 보낸후 (30분 지났거나 새로고침 한 경우) 에 update view 하기위해 getData 호출
+                //데이터 보낸후 (1.30분 지났거나, 2.새로고침 한 경우) 에 update view 하기위해 getData 호출
                 self.getSensorDataFromNetwork()
             case .failure(let type):
                 switch type {
@@ -202,56 +232,13 @@ extension SerialViewController {
     }
 
     func getSensorDataFromNetwork() {
-        print("emfdjdh")
         NetworkManager.sharedInstance.getSensorData { [weak self] (res) in
             guard let `self` = self else {
                 return
             }
             switch res {
             case .success(let data):
-                //todo 뷰 업데이트
-                //서버 데이터 값만 if문에 넣어주면 됨!
-                
-//                if 수분 데이터 정상일 때 {
-//                    waterImageView.image = UIImage(named: "water")
-//                    waterLabel.textColor = #colorLiteral(red: 0.3586158454, green: 0.6558669806, blue: 0.8545332551, alpha: 1)
-//                    waterLabel.text = "수분이 양호해요:)"
-//                } else {
-//                    waterImageView.image = UIImage(named: "water_none")
-//                    waterLabel.textColor = #colorLiteral(red: 0.9667089581, green: 0.3216629326, blue: 0.3425347209, alpha: 1)
-//                    waterLabel.text = "수분이 부족해요!"
-//                }
-//
-//                if 먼지 데이터 정상일 때 {
-//                    dustImageView.image = UIImage(named: "dust_none")
-//                    dustLabel.textColor = #colorLiteral(red: 0.3586158454, green: 0.6558669806, blue: 0.8545332551, alpha: 1)
-//                    dustLabel.text = "미세먼지가 양호해요:)"
-//                } else {
-//                    dustImageView.image = UIImage(named: "dust")
-//                    dustLabel.textColor = #colorLiteral(red: 0.9667089581, green: 0.3216629326, blue: 0.3425347209, alpha: 1)
-//                    dustLabel.text = "미세먼지가 나빠요!"
-//                }
-//
-//                if 온도 데이터 정상일 때 {
-//                    tempImageView.image = UIImage(named: "thermometer_none")
-//                    tempLabel.textColor = #colorLiteral(red: 0.3586158454, green: 0.6558669806, blue: 0.8545332551, alpha: 1)
-//                    tempLabel.text = "온도가 양호해요:)"
-//                } else {
-//                    tempImageView.image = UIImage(named: "thermometer")
-//                    tempLabel.textColor = #colorLiteral(red: 0.9667089581, green: 0.3216629326, blue: 0.3425347209, alpha: 1)
-//                    tempLabel.text = "온도가 낮아요!"
-//                }
-//
-//                if 가스 데이터 정상일 때 {
-//                    gasImageView.image = UIImage(named: "gas_none")
-//                    gasLabel.textColor = #colorLiteral(red: 0.3586158454, green: 0.6558669806, blue: 0.8545332551, alpha: 1)
-//                    gasLabel.text = "CO가 양호해요:)"
-//                } else {
-//                    gasImageView.image = UIImage(named: "gas")
-//                    gasLabel.textColor = #colorLiteral(red: 0.9667089581, green: 0.3216629326, blue: 0.3425347209, alpha: 1)
-//                    gasLabel.text = "CO가 나빠요!"
-//                }
-                
+                self.updateView()
                 break
             case .failure(let type):
                 switch type {
