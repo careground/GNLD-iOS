@@ -16,11 +16,11 @@ protocol Networkable {
                completion: @escaping (Result<String, NetworkError>) -> ())
     func getSensorData(completion: @escaping (Result<String, NetworkError>) -> ())
     func sendSensorData(temperature: Double,
-                         humidity_per: Double,
+                         humidityPercent: Double,
                          CO: Int,
                          pm10: Int,
                          pm2p5: Int,
-                         soil_per: Int,
+                         soilPercent: Int,
                          completion: @escaping (Result<String, NetworkError>) -> ()
     )
 }

@@ -13,11 +13,11 @@ enum CareGroundAPI {
     case login(id: String, pwd: String)
     case getSensorData
     case sendSensorData(temperature: Double,
-        humidity_per: Double,
+        humidityPercent: Double,
         CO: Int,
         pm10: Int,
         pm2p5: Int,
-        soil_per: Int)
+        soilPercent: Int)
 }
 
 extension CareGroundAPI: TargetType {
@@ -61,17 +61,17 @@ extension CareGroundAPI: TargetType {
         case .getSensorData:
             return .requestPlain
         case .sendSensorData(let temperature,
-                              let humidity_per,
+                              let humidityPercent,
                               let CO,
                               let pm10,
                               let pm2p5,
-                              let soil_per):
+                              let soilPercent):
             let parameters: [String: Any] = ["temperature": temperature,
-                                             "humidity_per": humidity_per,
+                                             "humidity_per": humidityPercent,
                                              "CO": CO,
                                              "pm10": pm10,
                                              "pm2p5": pm2p5,
-                                             "soil_per": soil_per
+                                             "soil_per": soilPercent
             ]
             return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
         }
