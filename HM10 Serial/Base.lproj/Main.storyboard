@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dxf-N9-FmM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Jeo-C3-jHL">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -326,14 +326,14 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nx8-HL-DNp">
-                                <rect key="frame" x="151.66666666666666" y="524.33333333333337" width="71" height="45"/>
+                                <rect key="frame" x="128.66666666666666" y="524.33333333333337" width="117" height="45"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <state key="normal" title="로그인"/>
+                                <state key="normal" title="로그인하기"/>
                                 <connections>
                                     <action selector="loginAction:" destination="Jeo-C3-jHL" eventType="touchUpInside" id="UHi-mM-7xG"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plant" translatesAutoresizingMaskIntoConstraints="NO" id="59Y-eu-hW9">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="myplant" translatesAutoresizingMaskIntoConstraints="NO" id="59Y-eu-hW9">
                                 <rect key="frame" x="97.666666666666686" y="153.33333333333337" width="180" height="180.66666666666663"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="59Y-eu-hW9" secondAttribute="height" multiplier="255:256" id="1m9-7W-HTn"/>
@@ -410,7 +410,7 @@
         <image name="dust" width="512" height="512"/>
         <image name="gas" width="256" height="256"/>
         <image name="link" catalog="system" width="64" height="58"/>
-        <image name="plant" width="256" height="256"/>
+        <image name="myplant" width="512" height="512"/>
         <image name="thermometer" width="512" height="512"/>
         <image name="water_none" width="256" height="256"/>
     </resources>

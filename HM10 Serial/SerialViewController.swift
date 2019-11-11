@@ -14,20 +14,20 @@ import SwiftyJSON
 /// The option to add a \n or \r or \r\n to the end of the send message
 enum MessageOption: Int {
     case noLineEnding,
-         newline,
-         carriageReturn,
-         carriageReturnAndNewline
+    newline,
+    carriageReturn,
+    carriageReturnAndNewline
 }
 
 /// The option to add a \n to the end of the received message (to make it more readable)
 enum ReceivedMessageOption: Int {
     case none,
-         newline
+    newline
 }
 
 final class SerialViewController: UIViewController, UITextFieldDelegate, BluetoothSerialDelegate {
-
-//MARK: IBOutlets
+    
+    //MARK: IBOutlets
     @IBOutlet weak var noConnectView: UIView!
     @IBOutlet weak var barButton: UIBarButtonItem!
     @IBOutlet weak var navItem: UINavigationItem!
@@ -127,8 +127,8 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
             barButton.isEnabled = false
         }
     }
-
-//MARK: IBActions
+    
+    //MARK: IBActions
     //블루투스 연결
     @IBAction func barButtonPressed(_ sender: AnyObject) {
         if serial.connectedPeripheral == nil {
@@ -172,19 +172,13 @@ extension SerialViewController {
     
     func serialDidDisconnect(_ peripheral: CBPeripheral, error: NSError?) {
         reloadView()
-        let hud = MBProgressHUD.showAdded(to: view, animated: true)
-        hud?.mode = MBProgressHUDMode.text
-        hud?.labelText = "연결 해제"
-        hud?.hide(true, afterDelay: 1.0)
+        self.showAlert(title: "연결 해제")
     }
     
     func serialDidChangeState() {
         reloadView()
         if serial.centralManager.state != .poweredOn {
-            let hud = MBProgressHUD.showAdded(to: view, animated: true)
-            hud?.mode = MBProgressHUDMode.text
-            hud?.labelText = "블루투스 종료"
-            hud?.hide(true, afterDelay: 1.0)
+            self.showAlert(title: "블루투스 종료")
         }
     }
 }
@@ -217,20 +211,14 @@ extension SerialViewController {
             case .failure(let type):
                 switch type {
                 case .networkConnectFail, .networkError:
-                    let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-                    hud?.mode = MBProgressHUDMode.text
-                    hud?.labelText = "네트워크 에러"
-                    hud?.hide(true, afterDelay: 1.0)
+                    self.showAlert(title: "네트워크 에러")
                 case .decodeError:
-                    let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-                    hud?.mode = MBProgressHUDMode.text
-                    hud?.labelText = "디코딩 에러"
-                    hud?.hide(true, afterDelay: 1.0)
+                    self.showAlert(title: "디코딩 에러")
                 }
             }
         }
     }
-
+    
     func getSensorDataFromNetwork() {
         NetworkManager.sharedInstance.getSensorData { [weak self] (res) in
             guard let `self` = self else {
@@ -243,15 +231,9 @@ extension SerialViewController {
             case .failure(let type):
                 switch type {
                 case .networkConnectFail, .networkError:
-                    let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-                    hud?.mode = MBProgressHUDMode.text
-                    hud?.labelText = "네트워크 에러"
-                    hud?.hide(true, afterDelay: 1.0)
+                    self.showAlert(title: "네트워크 에러")
                 case .decodeError:
-                    let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-                    hud?.mode = MBProgressHUDMode.text
-                    hud?.labelText = "디코딩 에러"
-                    hud?.hide(true, afterDelay: 1.0)
+                    self.showAlert(title: "디코딩 에러")
                 }
             }
         }

@@ -31,28 +31,11 @@ class AlertViewController: UIViewController {
             case .failure(let type):
                 switch type {
                 case .networkConnectFail, .networkError:
-                    let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-                    hud?.mode = MBProgressHUDMode.text
-                    hud?.labelText = "네트워크 에러"
-                    hud?.hide(true, afterDelay: 1.0)
+                    self.showAlert(title: "네트워크 에러")
                 case .decodeError:
-                    let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-                    hud?.mode = MBProgressHUDMode.text
-                    hud?.labelText = "디코딩 에러"
-                    hud?.hide(true, afterDelay: 1.0)
+                    self.showAlert(title: "디코딩 에러")
                 }
             }
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
