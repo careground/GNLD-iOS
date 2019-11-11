@@ -11,6 +11,7 @@ import Foundation
 enum UserDataKey: String {
     case authorization = "authorization"
     case lastSendDataTime = "lastSendDataTime"
+    case fcmToken = "fcmToken"
 }
 
 struct UserData {

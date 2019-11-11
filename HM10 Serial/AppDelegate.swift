@@ -61,7 +61,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let presentViewController = storyBoard.instantiateViewController(withIdentifier: "AlertViewController")
         self.window?.rootViewController?.present(presentViewController, animated: true, completion: nil)
     }
-
+    
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        UserData.setUserDefault(value: fcmToken, key: .fcmToken)
+    }
     
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
