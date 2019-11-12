@@ -11,5 +11,5 @@ import Foundation
 enum NetworkError: Error {
     case decodeError
     case networkConnectFail
-    case networkError
+    case networkError(with: String)
 }
