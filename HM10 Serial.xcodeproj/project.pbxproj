@@ -13,13 +13,12 @@
 		3BA619D72355F84000354C2A /* CareGroundAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA619D62355F84000354C2A /* CareGroundAPI.swift */; };
 		3BA619D92355F84900354C2A /* Networkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA619D82355F84900354C2A /* Networkable.swift */; };
 		3BA619DB2355F85B00354C2A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA619DA2355F85B00354C2A /* NetworkManager.swift */; };
-		3BA619DE2355FCD800354C2A /* SampleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA619DD2355FCD800354C2A /* SampleModel.swift */; };
-		3BAC367223799EC000478482 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC367123799EC000478482 /* NibLoadable.swift */; };
-		3BAC367423799ED400478482 /* UIPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC367323799ED400478482 /* UIPresentable.swift */; };
-		3BAC367623799EE100478482 /* AlertUsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC367523799EE100478482 /* AlertUsable.swift */; };
 		3BAC36782379A10C00478482 /* KeyboardObserving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC36772379A10C00478482 /* KeyboardObserving.swift */; };
 		3BAC367A2379A3E700478482 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BAC36792379A3E700478482 /* GoogleService-Info.plist */; };
 		3BAC367D2379A8D400478482 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC367C2379A8D400478482 /* UIViewController+Extension.swift */; };
+		3BAC36812379BBBA00478482 /* DefaultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC36802379BBBA00478482 /* DefaultModel.swift */; };
+		3BAC36832379BF6A00478482 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC36822379BF6A00478482 /* LoginModel.swift */; };
+		3BAC36852379C3BD00478482 /* SensorDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC36842379C3BD00478482 /* SensorDataModel.swift */; };
 		3BFCDC3123560740004D5405 /* ArduSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFCDC3023560740004D5405 /* ArduSensor.swift */; };
 		3BFCDC33235616C3004D5405 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFCDC32235616C3004D5405 /* UserData.swift */; };
 		3BFCDC3823565EB5004D5405 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3BFCDC3A23565EB5004D5405 /* InfoPlist.strings */; };
@@ -54,13 +53,12 @@
 		3BA619D62355F84000354C2A /* CareGroundAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareGroundAPI.swift; sourceTree = "<group>"; };
 		3BA619D82355F84900354C2A /* Networkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networkable.swift; sourceTree = "<group>"; };
 		3BA619DA2355F85B00354C2A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		3BA619DD2355FCD800354C2A /* SampleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleModel.swift; sourceTree = "<group>"; };
-		3BAC367123799EC000478482 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
-		3BAC367323799ED400478482 /* UIPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPresentable.swift; sourceTree = "<group>"; };
-		3BAC367523799EE100478482 /* AlertUsable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUsable.swift; sourceTree = "<group>"; };
 		3BAC36772379A10C00478482 /* KeyboardObserving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserving.swift; sourceTree = "<group>"; };
 		3BAC36792379A3E700478482 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3BAC367C2379A8D400478482 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		3BAC36802379BBBA00478482 /* DefaultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultModel.swift; sourceTree = "<group>"; };
+		3BAC36822379BF6A00478482 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		3BAC36842379C3BD00478482 /* SensorDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorDataModel.swift; sourceTree = "<group>"; };
 		3BFCDC3023560740004D5405 /* ArduSensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArduSensor.swift; sourceTree = "<group>"; };
 		3BFCDC32235616C3004D5405 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		3BFCDC3523565E66004D5405 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -137,9 +135,11 @@
 		3BA619DC2355FCC000354C2A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3BA619DD2355FCD800354C2A /* SampleModel.swift */,
 				3BFCDC3023560740004D5405 /* ArduSensor.swift */,
 				3BFCDC32235616C3004D5405 /* UserData.swift */,
+				3BAC36802379BBBA00478482 /* DefaultModel.swift */,
+				3BAC36822379BF6A00478482 /* LoginModel.swift */,
+				3BAC36842379C3BD00478482 /* SensorDataModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -155,9 +155,6 @@
 		3BAC367023799E9F00478482 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				3BAC367123799EC000478482 /* NibLoadable.swift */,
-				3BAC367323799ED400478482 /* UIPresentable.swift */,
-				3BAC367523799EE100478482 /* AlertUsable.swift */,
 				3BAC36772379A10C00478482 /* KeyboardObserving.swift */,
 			);
 			name = Common;
@@ -418,10 +415,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B19EF5223729854007F1316 /* LoginViewController.swift in Sources */,
-				3BAC367423799ED400478482 /* UIPresentable.swift in Sources */,
+				3BAC36832379BF6A00478482 /* LoginModel.swift in Sources */,
 				3BA619DB2355F85B00354C2A /* NetworkManager.swift in Sources */,
-				3BA619DE2355FCD800354C2A /* SampleModel.swift in Sources */,
-				3BAC367223799EC000478482 /* NibLoadable.swift in Sources */,
 				3BFCDC3123560740004D5405 /* ArduSensor.swift in Sources */,
 				FA5AB98B1B77A398007443C8 /* BluetoothSerial.swift in Sources */,
 				FA73A0361B78FEB0005EFDB6 /* SerialViewController.swift in Sources */,
@@ -432,10 +427,11 @@
 				3BA619D72355F84000354C2A /* CareGroundAPI.swift in Sources */,
 				FA5AB96B1B77A30F007443C8 /* AppDelegate.swift in Sources */,
 				3BA619D52355F82600354C2A /* NetworkResult.swift in Sources */,
-				3BAC367623799EE100478482 /* AlertUsable.swift in Sources */,
 				FA755D301B78B8FE00A902FE /* ScannerViewController.swift in Sources */,
 				3B86856023682EDE00B0F081 /* AlertViewController.swift in Sources */,
 				FA62F58D1B8B85B3000479B6 /* MBProgressHUD.m in Sources */,
+				3BAC36812379BBBA00478482 /* DefaultModel.swift in Sources */,
+				3BAC36852379C3BD00478482 /* SensorDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
