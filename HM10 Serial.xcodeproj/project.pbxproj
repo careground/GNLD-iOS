@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3B19EF5223729854007F1316 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B19EF5123729854007F1316 /* LoginViewController.swift */; };
+		3B2C49DA237AA81B00276C52 /* SwiftNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2C49D9237AA81B00276C52 /* SwiftNotice.swift */; };
 		3B86856023682EDE00B0F081 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B86855F23682EDE00B0F081 /* AlertViewController.swift */; };
 		3BA619D52355F82600354C2A /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA619D42355F82600354C2A /* NetworkResult.swift */; };
 		3BA619D72355F84000354C2A /* CareGroundAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA619D62355F84000354C2A /* CareGroundAPI.swift */; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		18BB5C09B78CA9FDC89C7D0A /* Pods-Serial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Serial.debug.xcconfig"; path = "Target Support Files/Pods-Serial/Pods-Serial.debug.xcconfig"; sourceTree = "<group>"; };
 		3B19EF5123729854007F1316 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3B2C49D9237AA81B00276C52 /* SwiftNotice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftNotice.swift; sourceTree = "<group>"; };
 		3B86855F23682EDE00B0F081 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		3BA25DF72365DC03000FE7A1 /* 그느르다.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "그느르다.entitlements"; sourceTree = "<group>"; };
 		3BA619D42355F82600354C2A /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
@@ -144,18 +146,12 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		3BA619DF2356025E00354C2A /* Util */ = {
-			isa = PBXGroup;
-			children = (
-				FA5AB98A1B77A398007443C8 /* BluetoothSerial.swift */,
-			);
-			name = Util;
-			sourceTree = "<group>";
-		};
 		3BAC367023799E9F00478482 /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				3BAC36772379A10C00478482 /* KeyboardObserving.swift */,
+				FA5AB98A1B77A398007443C8 /* BluetoothSerial.swift */,
+				3B2C49D9237AA81B00276C52 /* SwiftNotice.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -205,7 +201,6 @@
 				3BA619D32355F81300354C2A /* Networking */,
 				3BAC367023799E9F00478482 /* Common */,
 				3BAC367B2379A8C300478482 /* Extension */,
-				3BA619DF2356025E00354C2A /* Util */,
 				3BA619DC2355FCC000354C2A /* Model */,
 				3BA619D22355E3F800354C2A /* ViewController */,
 				FA5AB96A1B77A30F007443C8 /* AppDelegate.swift */,
@@ -419,6 +414,7 @@
 				3BA619DB2355F85B00354C2A /* NetworkManager.swift in Sources */,
 				3BFCDC3123560740004D5405 /* ArduSensor.swift in Sources */,
 				FA5AB98B1B77A398007443C8 /* BluetoothSerial.swift in Sources */,
+				3B2C49DA237AA81B00276C52 /* SwiftNotice.swift in Sources */,
 				FA73A0361B78FEB0005EFDB6 /* SerialViewController.swift in Sources */,
 				3BAC367D2379A8D400478482 /* UIViewController+Extension.swift in Sources */,
 				3BAC36782379A10C00478482 /* KeyboardObserving.swift in Sources */,
