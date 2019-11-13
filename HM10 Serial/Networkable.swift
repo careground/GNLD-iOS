@@ -48,6 +48,8 @@ extension Networkable {
                                 print(body)
                                 let message = JSON(body)["message"]
                                 completion(.failure(.networkError(with: message.description)))
+                            } else {
+                                completion(.failure(.networkError(with: "Network Error")))
                             }
                         } catch  {
                             completion(.failure(.networkError(with: "Network Error")))
