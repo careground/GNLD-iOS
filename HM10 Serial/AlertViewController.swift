@@ -21,17 +21,21 @@ class AlertViewController: UIViewController {
     }
     
     func sendIamFine() {
+        self.pleaseWait()
         NetworkManager.sharedInstance.sendIamFine { [weak self] (res) in
             guard let `self` = self else {
                 return
             }
+            self.clearAllNotice()
             switch res {
             case .success(_):
                 self.dismiss(animated: true, completion: nil)
             case .failure(let type):
                 switch type {
-                case .networkConnectFail, .networkError:
-                    self.showAlert(title: "네트워크 에러")
+                case .networkConnectFail:
+                    self.showAlert(title: "네트워크 연결상태 확인")
+                case .networkError(let errMessage):
+                    self.showAlert(title: errMessage)
                 case .decodeError:
                     self.showAlert(title: "디코딩 에러")
                 }

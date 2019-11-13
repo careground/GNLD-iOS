@@ -8,16 +8,39 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, KeyboardObserving {
     
     @IBOutlet weak var idTxtField: UITextField!
     @IBOutlet weak var pwdTxtField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        //todo 지우기
+        idTxtField.text = "test2@gmail.com"
+        pwdTxtField.text = "1234"
+        UserData.removeUserDefault(key: .authorization)
         checkLogin()
+        registerForKeyboardEvents()
     }
     @IBAction func loginAction(_ sender: Any) {
-        login(id: idTxtField.text ?? "", pwd: pwdTxtField.text ?? "")
+        guard let id = idTxtField.text, let pwd = pwdTxtField.text else {
+            return
+        }
+        if (isTextFieldValidate(id: id, pwd: pwd)) {
+            login(id: id, pwd: pwd)
+        } else {
+            showAlert(title: "모든 값을 채워주세요")
+        }
+    }
+    private func isTextFieldValidate(id: String?,
+                                    pwd: String?) -> Bool {
+        //textField 가 비어있는지 체크
+        guard let id = id, let pwd = pwd else {
+            return false
+        }
+        guard !id.isEmpty, !pwd.isEmpty else {
+            return false
+        }
+        return true
     }
     func checkLogin() {
         if UserData.isUserLogin {
@@ -31,32 +54,42 @@ class LoginViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.window?.rootViewController = startNavigationView
     }
+
+    deinit {
+        unregisterFromKeyboardEvents()
+    }
+}
+
+extension LoginViewController: UITextFieldDelegate  {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
+    }
 }
 
 //MARK: 통신
 extension LoginViewController {
     func login(id: String, pwd: String) {
-        NetworkManager.sharedInstance.login(id: id, pwd: pwd) { [weak self] (res) in
+        guard let fcmToken = UserData.getUserDefault(key: .fcmToken, type: String.self) else {
+            return
+        }
+        self.pleaseWait()
+        NetworkManager.sharedInstance.login(id: id, pwd: pwd, fcmToken: fcmToken) { [weak self] (res) in
             guard let `self` = self else {
                 return
             }
+            self.clearAllNotice()
             switch res {
             case .success(let data):
                 UserData.setUserDefault(value: data, key: .authorization)
                 self.toMainView()
             case .failure(let type):
-                //todo 여기에 잘못된 사용자 정보입니다 추가?
                 switch type {
-                case .networkConnectFail, .networkError:
-                    let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-                    hud?.mode = MBProgressHUDMode.text
-                    hud?.labelText = "네트워크 에러"
-                    hud?.hide(true, afterDelay: 1.0)
+                case .networkConnectFail:
+                    self.showAlert(title: "네트워크 연결상태 확인")
+                case .networkError(let errMessage):
+                    self.showAlert(title: errMessage)
                 case .decodeError:
-                    let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-                    hud?.mode = MBProgressHUDMode.text
-                    hud?.labelText = "디코딩 에러"
-                    hud?.hide(true, afterDelay: 1.0)
+                    self.showAlert(title: "디코딩 에러")
                 }
             }
         }
