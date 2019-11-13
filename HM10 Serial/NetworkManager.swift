@@ -17,20 +17,17 @@ struct NetworkManager: Networkable {
 }
 
 extension NetworkManager {
-    func login(id: String, pwd: String, completion: @escaping (Result<String, NetworkError>) -> ()) {
-        fetchData(api: .login(id: id, pwd: pwd), networkData: SampleModel.self) { (result) in
+    func login(id: String, pwd: String, fcmToken: String, completion: @escaping (Result<String, NetworkError>) -> ()) {
+        fetchData(api: .login(id: id, pwd: pwd, fcmToken: fcmToken), networkData: LoginModel.self) { (result) in
             switch result {
             case .success(let successResult):
-                guard let data = successResult.resResult.comments else {
-                    return
-                }
-                completion(.success(data))
+                completion(.success(successResult.resResult.token))
             case .failure(let errorType):
                 switch errorType {
                 case .networkConnectFail:
                     completion(.failure(.networkConnectFail))
-                case .networkError:
-                    completion(.failure(.networkError))
+                case .networkError(let errMessage):
+                    completion(.failure(.networkError(with: errMessage)))
                 case .decodeError:
                     completion(.failure(.decodeError))
                 }
@@ -38,20 +35,17 @@ extension NetworkManager {
         }
     }
     
-    func getSensorData(completion: @escaping (Result<String, NetworkError>) -> ()) {
-        fetchData(api: .getSensorData, networkData: SampleModel.self) { (result) in
+    func getSensorData(completion: @escaping (Result<SensorDataModel, NetworkError>) -> ()) {
+        fetchData(api: .getSensorData, networkData: SensorDataModel.self) { (result) in
             switch result {
             case .success(let successResult):
-                guard let data = successResult.resResult.comments else {
-                    return
-                }
-                completion(.success(data))
+                completion(.success(successResult.resResult))
             case .failure(let errorType):
                 switch errorType {
                 case .networkConnectFail:
                     completion(.failure(.networkConnectFail))
-                case .networkError:
-                    completion(.failure(.networkError))
+                case .networkError(let errMessage):
+                    completion(.failure(.networkError(with: errMessage)))
                 case .decodeError:
                     completion(.failure(.decodeError))
                 }
@@ -59,20 +53,17 @@ extension NetworkManager {
         }
     }
     
-    func sendSensorData(temperature: Double, humidityPercent: Double, CO: Int, pm10: Int, pm2p5: Int, soilPercent: Int, completion: @escaping (Result<String, NetworkError>) -> ()) {
-        fetchData(api: .sendSensorData(temperature: temperature, humidityPercent: humidityPercent, CO: CO, pm10: pm10, pm2p5: pm2p5, soilPercent: soilPercent), networkData: SampleModel.self) { (result) in
+    func sendSensorData(temperature: Double, humidityPercent: Double, CO: Int, pm10: Int,soilPercent: Int, completion: @escaping (Result<String, NetworkError>) -> ()) {
+        fetchData(api: .sendSensorData(temperature: temperature, humidityPercent: humidityPercent, CO: CO, pm10: pm10, soilPercent: soilPercent), networkData: DefaultModel.self) { (result) in
             switch result {
             case .success(let successResult):
-                guard let data = successResult.resResult.comments else {
-                    return
-                }
-                completion(.success(data))
+                completion(.success(successResult.resResult.message))
             case .failure(let errorType):
                 switch errorType {
                 case .networkConnectFail:
                     completion(.failure(.networkConnectFail))
-                case .networkError:
-                    completion(.failure(.networkError))
+                case .networkError(let errMessage):
+                    completion(.failure(.networkError(with: errMessage)))
                 case .decodeError:
                     completion(.failure(.decodeError))
                 }
@@ -80,19 +71,16 @@ extension NetworkManager {
         }
     }
     func sendIamFine(completion: @escaping (Result<String, NetworkError>) -> ()) {
-        fetchData(api: .sendIamFine, networkData: SampleModel.self) { (result) in
+        fetchData(api: .sendIamFine, networkData: DefaultModel.self) { (result) in
             switch result {
             case .success(let successResult):
-                guard let data = successResult.resResult.comments else {
-                    return
-                }
-                completion(.success(data))
+                completion(.success(successResult.resResult.message))
             case .failure(let errorType):
                 switch errorType {
                 case .networkConnectFail:
                     completion(.failure(.networkConnectFail))
-                case .networkError:
-                    completion(.failure(.networkError))
+                case .networkError(let errMessage):
+                    completion(.failure(.networkError(with: errMessage)))
                 case .decodeError:
                     completion(.failure(.decodeError))
                 }

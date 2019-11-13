@@ -10,20 +10,19 @@ import Foundation
 import Moya
 
 enum CareGroundAPI {
-    case login(id: String, pwd: String)
+    case login(id: String, pwd: String, fcmToken: String)
     case getSensorData
     case sendSensorData(temperature: Double,
         humidityPercent: Double,
         CO: Int,
         pm10: Int,
-        pm2p5: Int,
         soilPercent: Int)
     case sendIamFine
 }
 
 extension CareGroundAPI: TargetType {
     var baseURL: URL {
-        guard let url = URL(string: "http://localhost") else {
+        guard let url = URL(string: "http://13.125.105.66:3100/api") else {
             fatalError("base url could not be configured")
         }
         return url
@@ -31,13 +30,11 @@ extension CareGroundAPI: TargetType {
     var path: String {
         switch self {
         case .login:
-            return "/"
-        case .getSensorData:
-            return "/"
-        case .sendSensorData:
-            return "/"
+            return "/signin"
+        case .getSensorData, .sendSensorData:
+            return "/sensor"
         case .sendIamFine:
-            return "/"
+            return "/sendok"
         }
     }
     var method: Moya.Method {
@@ -47,7 +44,7 @@ extension CareGroundAPI: TargetType {
         case .login, .sendSensorData:
             return .post
         case .sendIamFine:
-            return .post
+            return .delete
         }
     }
     var parameterEncoding: ParameterEncoding {
@@ -58,10 +55,10 @@ extension CareGroundAPI: TargetType {
     }
     var task: Task {
         switch self {
-        case .login(let id, let pwd):
-            let parameters: [String: Any] = ["id": id,
-                                             "pwd": pwd
-            ]
+        case .login(let id, let pwd, let fcmToken):
+            let parameters: [String: Any] = ["email": id,
+                                             "password": pwd,
+                                             "fcm_token" : fcmToken]
             return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
         case .getSensorData, .sendIamFine:
             return .requestPlain
@@ -69,14 +66,12 @@ extension CareGroundAPI: TargetType {
                               let humidityPercent,
                               let CO,
                               let pm10,
-                              let pm2p5,
                               let soilPercent):
             let parameters: [String: Any] = ["temperature": temperature,
-                                             "humidity_per": humidityPercent,
-                                             "CO": CO,
-                                             "pm10": pm10,
-                                             "pm2p5": pm2p5,
-                                             "soil_per": soilPercent
+                                             "humidity": humidityPercent,
+                                             "co_gas": CO,
+                                             "fine_dust": pm10,
+                                             "soil_water": soilPercent
             ]
             return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
         }
@@ -85,10 +80,9 @@ extension CareGroundAPI: TargetType {
         return .successAndRedirectCodes
     }
     var headers: [String: String]? {
-        //todo 로그인해서 채우기
         if let authorization = UserData.getUserDefault(key: .authorization, type: String.self) {
             return ["Content-type": "application/json",
-                    "Authorization": authorization]
+                    "authorization": authorization]
         } else {
             return ["Content-type": "application/json"]
         }
