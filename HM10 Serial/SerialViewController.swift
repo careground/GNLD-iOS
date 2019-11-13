@@ -82,7 +82,6 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         serial = BluetoothSerial(delegate: self)
         reloadView()
         NotificationCenter.default.addObserver(self, selector: #selector(SerialViewController.reloadView), name: NSNotification.Name(rawValue: "reloadStartViewController"), object: nil)
-        //self.getSensorDataFromNetwork() //todo 지우기
     }
     
     deinit {
@@ -127,18 +126,9 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         }
     }
     
-    var index = 1
     //새로고침
     @IBAction func rightBarButtonPressed(_ sender: AnyObject) {
         //30분이랑 상관없이 보내기까지 된 후에 업데이트.
-         //todo 지우기
-        /*print(UserData.getUserDefault(key: .authorization, type: String.self))
-        index += 1
-        if index % 2 == 0 {
-            self.sensorData = ArduSensor(temperature: 13.3, humidityPercent: 50.3, CO: 5, pm10: 0, pm2p5: 0, soilPercent: 80)
-        } else {
-            self.sensorData = ArduSensor(temperature: 13.3, humidityPercent: 50.3, CO: 15, pm10: 0, pm2p5: 0, soilPercent: 80)
-        }*/
         guard let sensorData = self.sensorData else {
             return
         }
