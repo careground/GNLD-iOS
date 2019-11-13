@@ -41,4 +41,7 @@ struct UserData {
             return false
         }
     }
+    static func removeUserDefault(key: UserDataKey) {
+        UserDefaults.standard.removeObject(forKey: key.rawValue)
+    }
 }
