@@ -12,11 +12,11 @@ import Moya
 enum CareGroundAPI {
     case login(id: String, pwd: String, fcmToken: String)
     case getSensorData
-    case sendSensorData(temperature: Double,
-        humidityPercent: Double,
-        CO: Int,
-        pm10: Int,
-        soilPercent: Int)
+    case sendSensorData(temperature: Double?,
+        humidityPercent: Double?,
+        CO: Int?,
+        pm10: Int?,
+        soilPercent: Int?)
     case sendIamFine
 }
 

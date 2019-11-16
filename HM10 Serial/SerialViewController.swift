@@ -143,12 +143,12 @@ extension SerialViewController {
             msgToJson = ""
         }
         msgToJson += message
-        if message.last == "}" {
+        print(message)
+        if message.contains("}"){
             let data = msgToJson.data(using: .utf8)!
             do {
                 let sensorData = try JSONDecoder().decode(ArduSensor.self, from: data)
                 //센서 메시지 받아서 서버로 통신
-                print(sensorData) //todo 지우기
                 self.sensorData = sensorData
                 sendSensorData(isNeedToSend: UserData.isOver30mSendData, sensorData: sensorData)
             } catch {
@@ -176,15 +176,8 @@ extension SerialViewController {
         if !isNeedToSend {
             return
         }
-        guard let temperature = sensorData.temperature,
-            let humidityPercent = sensorData.humidityPercent,
-            let CO = sensorData.CO,
-            let pm10 = sensorData.pm10,
-            let soilPercent = sensorData.soilPercent else {
-                return
-        }
         self.pleaseWait()
-        NetworkManager.sharedInstance.sendSensorData(temperature: temperature, humidityPercent: humidityPercent, CO: CO, pm10: pm10, soilPercent: soilPercent) { [weak self] (res) in
+        NetworkManager.sharedInstance.sendSensorData(temperature: sensorData.temperature, humidityPercent: sensorData.humidityPercent, CO: sensorData.CO, pm10: sensorData.pm10, soilPercent: sensorData.soilPercent) { [weak self] (res) in
             guard let `self` = self else {
                 return
             }

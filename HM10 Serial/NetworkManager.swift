@@ -53,7 +53,7 @@ extension NetworkManager {
         }
     }
     
-    func sendSensorData(temperature: Double, humidityPercent: Double, CO: Int, pm10: Int,soilPercent: Int, completion: @escaping (Result<String, NetworkError>) -> ()) {
+    func sendSensorData(temperature: Double?, humidityPercent: Double?, CO: Int?, pm10: Int?,soilPercent: Int?, completion: @escaping (Result<String, NetworkError>) -> ()) {
         fetchData(api: .sendSensorData(temperature: temperature, humidityPercent: humidityPercent, CO: CO, pm10: pm10, soilPercent: soilPercent), networkData: DefaultModel.self) { (result) in
             switch result {
             case .success(let successResult):
