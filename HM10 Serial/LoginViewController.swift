@@ -14,10 +14,10 @@ class LoginViewController: UIViewController, KeyboardObserving {
     @IBOutlet weak var pwdTxtField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        //todo 지우기
-        idTxtField.text = "test2@gmail.com"
-        pwdTxtField.text = "1234"
-        UserData.removeUserDefault(key: .authorization)
+        //샘플 유저 테스트
+        /*idTxtField.text = "jungheehan@hanmail.net"
+        pwdTxtField.text = "1111"
+        UserData.removeUserDefault(key: .authorization)*/
         checkLogin()
         registerForKeyboardEvents()
     }

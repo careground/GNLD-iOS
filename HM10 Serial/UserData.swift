@@ -34,8 +34,8 @@ struct UserData {
             return true
         }
         //현재가 마지막으로 보낸시간 보다 크면 다시 보내야함
-        //todo 5초 -> 60*30으로 바꿔야
-        if Date() > lastSendDataTime.addingTimeInterval(5) {
+        //현재 시간은 30분
+        if Date() > lastSendDataTime.addingTimeInterval(60*30) {
            return true
         } else {
             return false
